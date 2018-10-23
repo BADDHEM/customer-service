@@ -16,13 +16,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Controller;
 
 import com.auth0.jwt.JWT;
 import com.customer.wc.customer.dto.CustomerDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
+@Controller
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+	
     private AuthenticationManager authenticationManager;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {

@@ -1,5 +1,9 @@
 package com.customer.wc.customer.dto;
 
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "tbl_customer_dto")
 public class CustomerDTO {
 
 	private long id;

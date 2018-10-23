@@ -2,7 +2,8 @@ package com.customer.wc.customer;
 
 import com.customer.wc.customer.dto.CustomerDTO;
 
-public interface CustomerService{
+public interface CustomerRepository {
+
 	
-	void saveCustomer(CustomerDTO customerDTO);
+	void saveCustomer(CustomerDTO customer);
 }

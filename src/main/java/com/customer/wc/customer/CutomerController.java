@@ -1,5 +1,7 @@
 package com.customer.wc.customer;
 
+import javax.annotation.Resource;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +16,9 @@ public class CutomerController {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-  
+    @Resource
+    CustomerService  customerService;
+    
 	@GetMapping(value="/getcustomer",produces="application/json")
 	public @ResponseBody String getCustomer() {
 		return "Venki";
@@ -23,6 +27,8 @@ public class CutomerController {
 	@PostMapping("/sign-up")
     public void signUp(@RequestBody CustomerDTO customer) {
 		customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));
-       // applicationUserRepository.save(user);
+        customerService.saveCustomer(customer);
     }
+	
+	
 }
