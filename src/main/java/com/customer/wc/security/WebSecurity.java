@@ -1,7 +1,10 @@
 package com.customer.wc.security;
 
+import javax.annotation.Resource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,14 +17,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
-	
-    private UserDetailsServiceImpl userDetailsService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+	 
+	 @Resource
+     UserDetailsServiceImpl userDetailsService;
+	 @Resource
+     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public WebSecurity(UserDetailsServiceImpl userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.userDetailsService = userDetailsService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
+    
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -46,4 +48,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
     return source;
   }
+  
+  @Bean
+  public AuthenticationManager customAuthenticationManager() throws Exception {
+      return authenticationManager();
+  }
+
 }

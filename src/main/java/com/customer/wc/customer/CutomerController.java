@@ -14,7 +14,8 @@ import com.customer.wc.customer.dto.CustomerDTO;
 @RestController
 public class CutomerController {
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Resource
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Resource
     CustomerService  customerService;
