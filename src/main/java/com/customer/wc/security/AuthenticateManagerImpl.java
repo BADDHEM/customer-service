@@ -14,7 +14,6 @@ public class AuthenticateManagerImpl implements AuthenticaManager {
 	
 	@Override
 	public CustomerDTO authenticateUser(String UserName) {
-		
 		return authRepository.authenticateUser(UserName);
 	}
 

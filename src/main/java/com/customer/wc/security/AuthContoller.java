@@ -16,17 +16,10 @@ public class AuthContoller {
 	@Resource
 	AuthenticaManager authenticManager;
 	
-	@PostMapping(value ="/login", produces="application/json")
-	public String validateUser(@RequestBody CustomerDTO customerDTO) {
-		
+	@PostMapping(value ="/authen/login", produces="application/json")
+	public String validateUserAndLogin(@RequestBody CustomerDTO customerDTO) {
 		return authenticManager.authenticateUser(customerDTO.getUsername()).getUsername();
 
 	}
 	
-	@PostMapping(value ="/authenticated", produces="application/json")
-	public void logger(@RequestBody CustomerDTO customerDTO) {
-		
-		System.out.println(customerDTO.getPassword());
-
-	}
 }

@@ -2,16 +2,20 @@ package com.customer.wc.customer;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.customer.wc.Util.Response;
 import com.customer.wc.customer.dto.CustomerDTO;
 
 @RestController
+@RequestMapping("/customer")
 public class CutomerController {
 
 	@Resource
@@ -26,9 +30,10 @@ public class CutomerController {
 	}
 	
 	@PostMapping("/sign-up")
-    public void signUp(@RequestBody CustomerDTO customer) {
+    public ResponseEntity<Response<String>> signUp(@RequestBody CustomerDTO customer) {
 		customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));
         customerService.saveCustomer(customer);
+        return Response.successResponse("SuccessFully SignedUp");
     }
 	
 	

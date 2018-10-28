@@ -2,6 +2,9 @@ package com.customer.wc.Util;
 
 import java.io.Serializable;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Response<T> implements Serializable {
@@ -48,18 +51,31 @@ public class Response<T> implements Serializable {
 	}
 	
 	
-	public static <T> Response<T> successResponse(String stausCode, T data, String message) {
-		return new Response<>(stausCode, data, message);
+	public static <T> ResponseEntity<Response<T>> successResponse(String stausCode, T data, String message) {
+		Response<T> response =  new Response<T>("200", data, message);
+		return new ResponseEntity<Response<T>>(response,HttpStatus.OK);
 	}
 	
-	public static <T> Response<T> successResponse(String stausCode, T data) {
-		return new Response<>(stausCode, data);
+	public static <T> ResponseEntity<Response<T>> successResponse(String stausCode, T data) {
+		Response<T> response =  new Response<T>("200", data);
+		return new ResponseEntity<Response<T>>(response,HttpStatus.OK);
 	}
 	
-	public static <T> Response<T> failureResponse(String stausCode, String message) {
-		return new Response<>(stausCode,message);
+	public static <T> ResponseEntity<Response<T>> successResponse(String message) {
+		Response<T> response =  new Response<T>("200",message);
+		return new ResponseEntity<Response<T>>(response,HttpStatus.OK);
+	}
+	
+	public static  <T> ResponseEntity<Response<T>> failureResponse(String stausCode, String message) {
+		Response<T> response =  new Response<T>(stausCode, message);
+		return new ResponseEntity<Response<T>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
 
 	}
 	
+	public static  <T> ResponseEntity<Response<T>> deleteResponse(String stausCode, String message) {
+		Response<T> response =  new Response<T>("204", message);
+		return new ResponseEntity<Response<T>>(response,HttpStatus.NO_CONTENT);
+
+	}
 
 }
