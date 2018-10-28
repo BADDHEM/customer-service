@@ -19,7 +19,7 @@ public class OrderRepositoryImpl implements OrderRepository{
 	}
 
 	@Override
-	public List<OrderDTO> getAllOrders(String customerId) {
+	public List<OrderDTO> getCustomerOrders(String customerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,6 +1,7 @@
 package com.customer.wc;
 
 
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.UUID;
 
@@ -41,10 +42,10 @@ public class CheckSum {
 		String uniqueID = UUID.randomUUID().toString();
 
 		System.out.println(uniqueID);
-		
-		UniqueIdGenerator uniq = new UniqueIdGenerator(10);
-		String uniqid = uniq.nextString();
-		uniqid = "CUST"+uniqid;
+		Random random = new Random();
+		UniqueIdGenerator uniq = new UniqueIdGenerator(11,random);
+		String uniqid = uniq.getCustomerId();
+		//uniqid = "CUSTID"+uniqid;
         System.out.println(uniqid.toUpperCase());	
 		}catch(Exception e) {
 			// TODO Auto-generated catch block

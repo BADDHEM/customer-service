@@ -11,7 +11,7 @@ public interface OrderRepository {
 	
 	void deleteOrder(String orderId);
 	
-	List<OrderDTO> getAllOrders(String customerId);
+	List<OrderDTO> getCustomerOrders(String customerId);
 	
 	List<OrderDTO> getOrdersByCriteria(String criteria);
 }

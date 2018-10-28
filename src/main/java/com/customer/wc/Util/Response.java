@@ -61,8 +61,8 @@ public class Response<T> implements Serializable {
 		return new ResponseEntity<Response<T>>(response,HttpStatus.OK);
 	}
 	
-	public static <T> ResponseEntity<Response<T>> successResponse(String message) {
-		Response<T> response =  new Response<T>("200",message);
+	public static <T> ResponseEntity<Response<T>> successResponse(T data) {
+		Response<T> response =  new Response<T>("200", data);
 		return new ResponseEntity<Response<T>>(response,HttpStatus.OK);
 	}
 	

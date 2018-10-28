@@ -56,8 +56,17 @@ public class UniqueIdGenerator {
      * Create session identifiers.
      */
     public UniqueIdGenerator() {
-        this(21);
+        this(11);
     }
 
+    public String getOrderId() {
+    	UniqueIdGenerator uniq = new UniqueIdGenerator(11,random);
+    	return "ORDER"+ uniq.nextString();
+    }
+    
+    public String getCustomerId() {
+    	UniqueIdGenerator uniq = new UniqueIdGenerator(11,random);
+    	return "CUSTID"+ uniq.nextString();
+    }
 }
 
