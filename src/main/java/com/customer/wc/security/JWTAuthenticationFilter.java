@@ -59,6 +59,18 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(HMAC512(SecurityConstants.SECRET.getBytes()));
+        res.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "POST,PUT, GET, OPTIONS, DELETE");
+        res.setHeader("Access-Control-Max-Age", "3600");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, Authorization");
+        res.addHeader("Access-Control-Expose-Headers", "Authorization");
+        CustomerDTO cust = new CustomerDTO();
+        cust.setToken(SecurityConstants.HEADER_STRING+" "+ SecurityConstants.TOKEN_PREFIX + token);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(cust);
+        res.getWriter().write(json);
         res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+        
     }
 }

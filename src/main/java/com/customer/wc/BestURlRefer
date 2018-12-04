@@ -1,0 +1,26 @@
+https://stackoverflow.com/questions/43445681/integrate-paytm-pgsdk-v2-0-android
+
+
+/*curl -i -H "Content-Type: application/json" -X POST -d '{
+"username": "venki",
+"password": "localhost"
+}' http://localhost:9999/authenticateUser
+
+https://stackoverflow.com/questions/43445681/integrate-paytm-pgsdk-v2-0-android - Code
+
+Authorization	Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXppIiwiZXhwIjoxNTQxMzAwNjAyfQ.2ozosz0LEtr2Zmb-XHGEFENV5VyTiDKVNR4ZtoGiq7B-Q4co5RHBc-N0H3CAaabsb1hwEy0OR611TKz86sm8WQ
+*/
+NOV - 28
+new Token = Authorization	Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSYW8iLCJleHAiOjE1NDQyODk0MzF9.3sVwQ8bocd6EXhd4yE9AUuGVijM4cH1ct8iHClCIEH6E9NgOhgR4wp-_oK3MzAXCvTGt5YoC6z05fHqtNwcM_g
+ 
+ 
+ 
+ if(!ApplicationSettings.getBoolean("authenticated", false)) {
+            this.router.navigate(["/login"], { clearHistory: true });
+        } else {
+            this.router.navigate(["/login"], { clearHistory: true });
+        }
+        
+        chrome-devtools://devtools/bundled/inspector.html?experiments=true&ws=localhost:40000
+        
+        https://gist.github.com/sasha7/0c32f3686eb49d44ccc8

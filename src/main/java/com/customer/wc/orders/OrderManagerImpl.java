@@ -2,32 +2,45 @@ package com.customer.wc.orders;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.customer.wc.Util.UniqueIdGenerator;
 import com.customer.wc.orders.dto.OrderDTO;
 
+@Service
 public class OrderManagerImpl implements OrderManager {
 
+	
+	@Resource
+	OrderRepository orderRepository;
+	
+	@Resource
+	UniqueIdGenerator uniqueIdGenerator;
+	
 	@Override
 	public String saveOrder(OrderDTO orderDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		String orderID = uniqueIdGenerator.nextString();
+		orderID = "ORDER"+orderID;
+		orderDTO.setOrderId(orderID);
+		orderRepository.saveOrder(orderDTO);
+		return "order SuccessFully created";
 	}
 
 	@Override
 	public void deleteOrder(String orderId) {
-		// TODO Auto-generated method stub
-		
+		orderRepository.deleteOrder(orderId);
 	}
 
 	@Override
 	public List<OrderDTO> getCustomerOrders(String customerId) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderRepository.getCustomerOrders(customerId);
 	}
 
 	@Override
 	public List<OrderDTO> getOrdersByCriteria(String criteria) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderRepository.getOrdersByCriteria(criteria);
 	}
 
 	

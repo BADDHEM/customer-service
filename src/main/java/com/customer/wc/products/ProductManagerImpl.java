@@ -2,6 +2,8 @@ package com.customer.wc.products;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.customer.wc.products.dto.ProductDTO;
@@ -9,28 +11,28 @@ import com.customer.wc.products.dto.ProductDTO;
 @Service
 public class ProductManagerImpl implements ProductManager {
 
+	@Resource
+	ProductRepository productRepository;
+	
 	@Override
-	public String addProduct(ProductDTO product) {
-		// TODO Auto-generated method stub
-		return null;
+	public void addProduct(ProductDTO product) {
+		 productRepository.addProduct(product);
 	}
 
 	@Override
 	public void deleteProduct(String productId) {
-		// TODO Auto-generated method stub
-		
+		productRepository.deleteProduct(productId);
 	}
 
 	@Override
 	public ProductDTO editProduct(ProductDTO product) {
-		// TODO Auto-generated method stub
-		return null;
+		productRepository.editProduct(product);
+		return product;
 	}
 
 	@Override
 	public List<ProductDTO> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return productRepository.getProducts();
 	}
 
 	@Override

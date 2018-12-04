@@ -6,7 +6,7 @@ import com.customer.wc.products.dto.ProductDTO;
 
 public interface ProductManager {
 
-	String addProduct(ProductDTO product);
+	void addProduct(ProductDTO product);
 	
 	void  deleteProduct(String productId);
 	

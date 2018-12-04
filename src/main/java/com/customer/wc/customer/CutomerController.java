@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.customer.wc.Util.Response;
@@ -24,11 +23,12 @@ public class CutomerController {
     @Resource
     CustomerService  customerService;
     
-	@GetMapping(value="/getcustomer",produces="application/json")
-	public @ResponseBody String getCustomer() {
-		return "Venki";
-	}
 	
+    @GetMapping(value="/getcustomer",produces="application/json")
+	public ResponseEntity<Response<String>>  getCustomer() {
+		return Response.successResponse("SuccessFully SignedUp");
+	}
+    
 	@PostMapping("/sign-up")
     public ResponseEntity<Response<String>> signUp(@RequestBody CustomerDTO customer) {
 		customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));

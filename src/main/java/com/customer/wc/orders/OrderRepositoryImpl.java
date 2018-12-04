@@ -2,32 +2,40 @@ package com.customer.wc.orders;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
 import com.customer.wc.orders.dto.OrderDTO;
 
 public class OrderRepositoryImpl implements OrderRepository{
 
+	@Resource
+	MongoOperations mongoOperations;
+	
 	@Override
-	public String saveOrder(OrderDTO orderDTO) {
-		// TODO Auto-generated method stub
-		return null;
+	public void saveOrder(OrderDTO orderDTO) {
+		 mongoOperations.save(orderDTO);
 	}
 
 	@Override
 	public void deleteOrder(String orderId) {
-		// TODO Auto-generated method stub
-		
+		Query query = new Query(Criteria.where("orderId").is(orderId));
+		mongoOperations.remove(query, OrderDTO.class);
 	}
 
 	@Override
 	public List<OrderDTO> getCustomerOrders(String customerId) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = new Query(Criteria.where("custId").is(customerId));
+		return mongoOperations.find(query, OrderDTO.class);
 	}
 
 	@Override
 	public List<OrderDTO> getOrdersByCriteria(String criteria) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = new Query(Criteria.where("orderStatus").is(criteria));
+		return mongoOperations.find(query, OrderDTO.class);
 	}
 
 	

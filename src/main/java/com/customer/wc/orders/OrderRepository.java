@@ -7,7 +7,7 @@ import com.customer.wc.orders.dto.OrderDTO;
 public interface OrderRepository {
 
 	
-    String saveOrder(OrderDTO orderDTO);
+    void saveOrder(OrderDTO orderDTO);
 	
 	void deleteOrder(String orderId);
 	

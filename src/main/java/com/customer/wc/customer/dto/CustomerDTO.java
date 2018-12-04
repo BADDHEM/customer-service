@@ -14,6 +14,7 @@ public class CustomerDTO {
     private String email;
     private String mobile;
     private String landMark;
+    private String token;
     
 	public long getId() {
 		return id;
@@ -79,7 +80,14 @@ public class CustomerDTO {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 
 }
