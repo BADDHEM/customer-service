@@ -2,14 +2,18 @@ package com.customer.wc.products;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.customer.wc.products.dto.ProductDTO;
 
+@Repository
 public class ProductRepositorympl implements ProductRepository {
 
+	@Autowired
 	MongoOperations mongoOperations;
 	
 	@Override

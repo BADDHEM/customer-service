@@ -5,6 +5,9 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UniqueIdGenerator {
 
     /**

@@ -7,9 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.customer.wc.orders.dto.OrderDTO;
 
+@Repository
 public class OrderRepositoryImpl implements OrderRepository{
 
 	@Resource
