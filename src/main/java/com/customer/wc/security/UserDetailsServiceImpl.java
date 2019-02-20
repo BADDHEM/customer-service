@@ -2,6 +2,8 @@ package com.customer.wc.security;
 
 import java.util.Collections;
 
+import javax.annotation.Resource;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,16 +14,15 @@ import com.customer.wc.customer.dto.CustomerDTO;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-   // private ApplicationUserRepository applicationUserRepository;
+	
+	 @Resource
+     private AuthenticaManager authenticaManager;
 
-   /* public UserDetailsServiceImpl(ApplicationUserRepository applicationUserRepository) {
-        this.applicationUserRepository = applicationUserRepository;
-    }*/
+   
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	CustomerDTO applicationUser = null;
-    	//CustomerDTO applicationUser = applicationUserRepository.findByUsername(username);
+    	 CustomerDTO applicationUser = authenticaManager.authenticateUser(username);
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);
         }
