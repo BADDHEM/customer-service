@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.customer.wc.Util.Response;
+import com.customer.wc.util.Response;
 import com.customer.wc.orders.dto.OrderDTO;
 
 @RestController

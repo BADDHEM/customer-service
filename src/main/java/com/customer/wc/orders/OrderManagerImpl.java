@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.customer.wc.Util.UniqueIdGenerator;
+import com.customer.wc.util.UniqueIdGenerator;
 import com.customer.wc.orders.dto.OrderDTO;
 
 @Service

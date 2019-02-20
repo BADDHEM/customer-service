@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.customer.wc.Util.Response;
 import com.customer.wc.reviews.dto.ProductReviewDTO;
+import com.customer.wc.util.Response;
 
 @RestController
 public class ReviewContoller {

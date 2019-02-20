@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.customer.wc.Util.CustomerNotFoundException;
-import com.customer.wc.Util.Response;
 import com.customer.wc.customer.dto.CustomerDTO;
+import com.customer.wc.util.CustomerNotFoundException;
+import com.customer.wc.util.Response;
 
 @RestController
 public class AuthContoller {

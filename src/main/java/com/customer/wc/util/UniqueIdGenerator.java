@@ -1,4 +1,4 @@
-package com.customer.wc.Util;
+package com.customer.wc.util;
 
 import java.security.SecureRandom;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.customer.wc.Util;
+package com.customer.wc.util;
 
 import org.springframework.stereotype.Component;
 
